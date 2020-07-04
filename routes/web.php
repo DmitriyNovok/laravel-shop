@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'Web\HomeController@home');
 
-Route::get('/categories', function () {
-    return view('categories');
-});
+Route::get('/categories', 'Products\ProductsController@viewCategories');
 
-Route::get('/mobiles/iphone_x_64', function () {
-    return view('product');
-});
+Route::get('/{category}', 'Products\ProductsController@viewCategory');
+
+Route::get('/mobiles/{product}', 'Products\ProductsController@viewProduct');

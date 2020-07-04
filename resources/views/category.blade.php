@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Online Shop: Main</title>
+    <title>Online Shop: Category Мобильные телефоны</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <script src="/js/jquery.min.js"></script>
@@ -17,12 +17,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="http://internet-shop.tmweb.ru">Online Shop</a>
+            <a class="navbar-brand" href="/">Online Shop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">All products</a></li>
-                <li ><a href="/categories">Categories</a>
+                <li ><a href="http://internet-shop.tmweb.ru">All products</a></li>
+                <li class="active"><a href="/categories">Categories</a>
                 </li>
                 <li ><a href="http://internet-shop.tmweb.ru/basket">Your cart</a></li>
                 <li><a href="http://internet-shop.tmweb.ru/reset">Reset project to default state</a></li>
@@ -48,33 +48,18 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>All products</h1>
-        <form method="GET" action="http://internet-shop.tmweb.ru">
-            <div class="filters row">
-                <div class="col-sm-6 col-md-3">
-                    <label for="price_from">Price from                    <input type="text" name="price_from" id="price_from" size="6" value="">
-                    </label>
-                    <label for="price_to">to                    <input type="text" name="price_to" id="price_to" size="6"  value="">
-                    </label>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <label for="hit">
-                        <input type="checkbox" name="hit" id="hit" > Hit                </label>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <label for="new">
-                        <input type="checkbox" name="new" id="new" > New                </label>
-                </div>
-                <div class="col-sm-2 col-md-2">
-                    <label for="recommend">
-                        <input type="checkbox" name="recommend" id="recommend" > Recommend                </label>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    <a href="http://internet-shop.tmweb.ru" class="btn btn-warning">Reset</a>
-                </div>
-            </div>
-        </form>
+        <h1>
+            @if($category == 'mobiles')
+                Мобильные телефоны
+            @elseif($category == 'portable')
+                Портативная техника
+            @elseif($category == 'appliances')
+                Бытовая техника
+            @endif
+        </h1>
+        <p>
+            В этом разделе вы найдёте самые популярные мобильные телефонамы по отличным ценам!
+        </p>
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
@@ -109,9 +94,10 @@
                         <p>89990 ₽</p>
                         <p>
                         <form action="http://internet-shop.tmweb.ru/basket/add/2" method="POST">
-                            Not available                                <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_256"
-                                                                            class="btn btn-default"
-                                                                            role="button">More about</a>
+                            <button type="submit" class="btn btn-primary" role="button">Add to cart</button>
+                            <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_256"
+                               class="btn btn-default"
+                               role="button">More about</a>
                             <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">            </form>
                         </p>
                     </div>
@@ -150,28 +136,7 @@
                         <p>17221 ₽</p>
                         <p>
                         <form action="http://internet-shop.tmweb.ru/basket/add/4" method="POST">
-                            <button type="submit" class="btn btn-primary" role="button">Add to cart</button>
-                            <a href="http://internet-shop.tmweb.ru/mobiles/iphone_5se"
-                               class="btn btn-default"
-                               role="button">More about</a>
-                            <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">            </form>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <div class="labels">
-
-
-                    </div>
-                    <img src="http://internet-shop.tmweb.ru/storage/products/beats.jpg" alt="Наушники Beats Audio">
-                    <div class="caption">
-                        <h3>Наушники Beats Audio</h3>
-                        <p>20221 ₽</p>
-                        <p>
-                        <form action="http://internet-shop.tmweb.ru/basket/add/5" method="POST">
-                            Not available                                <a href="http://internet-shop.tmweb.ru/portable/beats_audio"
+                            Not available                                <a href="http://internet-shop.tmweb.ru/mobiles/iphone_5se"
                                                                             class="btn btn-default"
                                                                             role="button">More about</a>
                             <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">            </form>
@@ -185,14 +150,14 @@
 
 
                     </div>
-                    <img src="http://internet-shop.tmweb.ru/storage/products/gopro.jpg" alt="Камера GoPro">
+                    <img src="http://internet-shop.tmweb.ru/storage/products/samsung_j6.jpg" alt="Samsung Galaxy J6">
                     <div class="caption">
-                        <h3>Камера GoPro</h3>
-                        <p>12000 ₽</p>
+                        <h3>Samsung Galaxy J6</h3>
+                        <p>11980 ₽</p>
                         <p>
-                        <form action="http://internet-shop.tmweb.ru/basket/add/6" method="POST">
+                        <form action="http://internet-shop.tmweb.ru/basket/add/12" method="POST">
                             <button type="submit" class="btn btn-primary" role="button">Add to cart</button>
-                            <a href="http://internet-shop.tmweb.ru/portable/gopro"
+                            <a href="http://internet-shop.tmweb.ru/mobiles/samsung_j6"
                                class="btn btn-default"
                                role="button">More about</a>
                             <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">            </form>
@@ -201,27 +166,6 @@
                 </div>
             </div>
         </div>
-        <nav>
-            <ul class="pagination">
-
-                <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
-                    <span class="page-link" aria-hidden="true">&lsaquo;</span>
-                </li>
-
-
-
-
-
-                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                <li class="page-item"><a class="page-link" href="?&amp;page=2">2</a></li>
-
-
-                <li class="page-item">
-                    <a class="page-link" href="?&amp;page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
-                </li>
-            </ul>
-        </nav>
-
     </div>
 </div>
 </body>
