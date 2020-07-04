@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Products;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 class ProductsController extends Controller
 {
     public function viewCategories()
     {
-        return view('categories');
+        $categories = Category::get();
+        return view('categories', compact('categories'));
     }
 
-    public function viewCategory($category)
+    public function viewCategory($code)
     {
+        $category = Category::where('code', $code)->first();
         return view('category', compact('category'));
     }
 
