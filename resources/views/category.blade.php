@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Online Shop: Category Мобильные телефоны</title>
+    <title>Online Shop: {{ $category->name }}</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <script src="/js/jquery.min.js"></script>
@@ -21,26 +21,42 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li ><a href="http://internet-shop.tmweb.ru">All products</a></li>
-                <li class="active"><a href="/categories">Categories</a>
+                <li>
+                    <a href="/">All products</a>
                 </li>
-                <li ><a href="http://internet-shop.tmweb.ru/basket">Your cart</a></li>
-                <li><a href="http://internet-shop.tmweb.ru/reset">Reset project to default state</a></li>
-                <li><a href="http://internet-shop.tmweb.ru/locale/ru">ru</a></li>
+                <li class="active">
+                    <a href="/categories">Categories</a>
+                </li>
+                <li>
+                    <a href="http://internet-shop.tmweb.ru/basket">Your cart</a>
+                </li>
+                <li>
+                    <a href="http://internet-shop.tmweb.ru/reset">Reset project to default state</a>
+                </li>
+                <li>
+                    <a href="http://internet-shop.tmweb.ru/locale/ru">ru</a>
+                </li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">₽<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="http://internet-shop.tmweb.ru/currency/RUB">₽</a></li>
-                        <li><a href="http://internet-shop.tmweb.ru/currency/USD">$</a></li>
-                        <li><a href="http://internet-shop.tmweb.ru/currency/EUR">€</a></li>
+                        <li>
+                            <a href="http://internet-shop.tmweb.ru/currency/RUB">₽</a>
+                        </li>
+                        <li>
+                            <a href="http://internet-shop.tmweb.ru/currency/USD">$</a>
+                        </li>
+                        <li>
+                            <a href="http://internet-shop.tmweb.ru/currency/EUR">€</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://internet-shop.tmweb.ru/login">Login</a></li>
-
+                <li>
+                    <a href="http://internet-shop.tmweb.ru/login">Login</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -71,7 +87,8 @@
                             <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_64"
                                class="btn btn-default"
                                role="button">More about</a>
-                            <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">            </form>
+                            <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">
+                        </form>
                         </p>
                     </div>
                 </div>
