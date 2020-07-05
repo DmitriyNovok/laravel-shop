@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', 'Web\HomeController@home');
+Route::namespace('Web')->group(function () {
 
-Route::get('/categories', 'Products\ProductsController@viewCategories');
+    /* Home page */
+    Route::get('/', 'PageHomeController@home');
+});
 
-Route::get('/{category}', 'Products\ProductsController@viewCategory');
+Route::namespace('Products')->group(function () {
 
-Route::get('/mobiles/{product}', 'Products\ProductsController@viewProduct');
+    /* Page categories */
+    Route::get('/categories', 'ProductsController@viewCategories');
+
+    /* Category */
+    Route::get('/{category}', 'ProductsController@viewCategory');
+
+    /* Page product item */
+    Route::get('/mobiles/{product}', 'ProductsController@viewProduct');
+});
+
