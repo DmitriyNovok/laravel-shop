@@ -17,19 +17,19 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Online Shop</a>
+            <a class="navbar-brand" href="{{ route('home') }}">Online Shop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/all-products">All products</a></li>
+                <li class="active"><a href="{{ route('home') }}">All products</a></li>
                 <li>
-                    <a href="/categories">Categories</a>
+                    <a href="{{ route('categories') }}">Categories</a>
                 </li>
                 <li>
-                    <a href="/basket">Your cart</a>
+                    <a href="{{ route('basket') }}">Your cart</a>
                 </li>
                 <li>
-                    <a href="/reset">Reset project to default state</a>
+                    <a href="{{ route('home') }}">Reset project to default state</a>
                 </li>
                 <li>
                     <a href="/locale/ru">ru</a>

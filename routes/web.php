@@ -14,18 +14,35 @@
 Route::namespace('Web')->group(function () {
 
     /* Home page */
-    Route::get('/', 'PageHomeController@home');
+    Route::get('/', 'PageHomeController@home')
+        ->name('home');
 });
 
 Route::namespace('Products')->group(function () {
 
     /* Page categories */
-    Route::get('/categories', 'ProductsController@viewCategories');
+    Route::get('/categories', 'ProductsController@viewCategories')
+        ->name('categories');
 
     /* Category */
-    Route::get('/{category}', 'ProductsController@viewCategory');
+    Route::get('/{category}', 'ProductsController@viewCategory')
+        ->name('category');
 
     /* Page product item */
-    Route::get('/mobiles/{product}', 'ProductsController@viewProduct');
+    Route::get('/{category}/{product?}', 'ProductsController@viewProduct')
+        ->name('product');
 });
 
+Route::namespace('Basket')->group(function () {
+
+    /* Basket */
+    Route::get('/basket', 'BasketController@home')
+        ->name('basket');
+});
+
+Route::namespace('Order')->group(function () {
+
+    /* Order */
+    Route::get('/order', 'OrderController@order')
+        ->name('order');
+});

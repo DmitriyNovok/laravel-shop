@@ -22,7 +22,7 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function viewProduct($product)
+    public function viewProduct($category, $product)
     {
         return view('product', [
             'product' => $product
