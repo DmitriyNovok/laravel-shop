@@ -21,19 +21,13 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('home') }}">All products</a></li>
-                <li>
-                    <a href="{{ route('categories') }}">Categories</a>
-                </li>
-                <li>
-                    <a href="{{ route('basket') }}">Your cart</a>
-                </li>
-                <li>
-                    <a href="{{ route('home') }}">Reset project to default state</a>
-                </li>
-                <li>
-                    <a href="/locale/ru">ru</a>
-                </li>
+                <?php foreach (config('shop.menu.list.header') as $item_menu) : ?>
+                    <li class="active">
+                        <a href="<?= $item_menu['href'] ?>"><?= $item_menu['title'] ?></a>
+                    </li>
+                <?php endforeach; ?>
+
+                <?= view('snippets.insertions.header.locales') ?>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">₽<span class="caret"></span></a>
