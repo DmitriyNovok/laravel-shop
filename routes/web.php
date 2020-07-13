@@ -18,6 +18,21 @@ Route::namespace('Web')->group(function () {
         ->name('home');
 });
 
+Route::namespace('Basket')->group(function () {
+
+    /* Basket */
+    Route::get('/basket', 'BasketController@basket')
+        ->name('basket');
+
+    /* Basket */
+    Route::get('/basket/place', 'BasketController@basketPlace')
+        ->name('basket');
+
+    /* Add item in basket */
+    Route::post('/basket/add/{id}', 'BasketController@add')
+        ->name('basket-add');
+});
+
 Route::namespace('Products')->group(function () {
 
     /* Page categories */
@@ -31,13 +46,6 @@ Route::namespace('Products')->group(function () {
     /* Page product item */
     Route::get('/{category}/{product?}', 'ProductsController@viewProduct')
         ->name('product');
-});
-
-Route::namespace('Basket')->group(function () {
-
-    /* Basket */
-    Route::get('/basket', 'BasketController@home')
-        ->name('basket');
 });
 
 Route::namespace('Order')->group(function () {

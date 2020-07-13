@@ -6,10 +6,10 @@
             <h3>{{$product->name}}</h3>
             <p>{{$product->price}}</p>
 
-            <form action="{{ route('basket') }}" method="POST">
+            <form action="{{ route('basket-add', [$product]) }}" method="POST">
                 <button type="submit" class="btn btn-primary" role="button">Add to cart</button>
                 <a href="{{route('product', [$product->category->code, $product->code])}}" class="btn btn-default" role="button">More about</a>
-                <input type="hidden" name="_token" value="oiZDDgx4xacrb6W6XFcf74ukeiPmkytVyCyACy6P">
+                @csrf
             </form>
         </div>
     </div>
