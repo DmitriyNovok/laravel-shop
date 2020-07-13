@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Products;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -18,7 +19,7 @@ class ProductsController extends Controller
     public function viewCategory($code)
     {
         return view('category', [
-            'category' => Category::where('code', $code)->first()
+            'category' => Category::where('code', $code)->first(),
         ]);
     }
 

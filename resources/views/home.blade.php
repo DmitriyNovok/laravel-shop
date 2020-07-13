@@ -7,7 +7,9 @@
         <h1>All products</h1>
         @include('main-form')
         <div class="row">
-            @include('card')
+            @foreach($products as $product)
+                @include('card', ['product' => $product])
+            @endforeach
 
         {{--<nav>--}}
             {{--<ul class="pagination">--}}
