@@ -21,11 +21,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <?php foreach (config('shop.menu.list.header') as $item_menu) : ?>
-                    <li class="active">
-                        <a href="<?= $item_menu['href'] ?>"><?= $item_menu['title'] ?></a>
-                    </li>
-                <?php endforeach; ?>
+
+               @include('snippets.insertions.header.sub-menu')
 
                 <?= view('snippets.insertions.header.locales') ?>
 
