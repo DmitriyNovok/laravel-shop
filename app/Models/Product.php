@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getCategoryById()
-    {
-        return Category::find($this->category_id);
-    }
+//    public function getCategoryById()
+//    {
+//        return Category::find($this->category_id);
+//    }
 
     public function category()
     {

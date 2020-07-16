@@ -26,11 +26,15 @@ Route::namespace('Basket')->group(function () {
 
     /* Basket */
     Route::get('/basket/place', 'BasketController@basketPlace')
-        ->name('basket');
+        ->name('basket-place');
 
     /* Add item in basket */
     Route::post('/basket/add/{id}', 'BasketController@add')
         ->name('basket-add');
+
+    /* Remove in basket */
+    Route::post('/basket/remove/{id}', 'BasketController@remove')
+        ->name('basket-remove');
 });
 
 Route::namespace('Products')->group(function () {

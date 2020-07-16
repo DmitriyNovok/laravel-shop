@@ -27,17 +27,18 @@
                         </td>
                         <td><span class="badge">1</span>
                             <div class="btn-group form-inline">
-                                <form action="http://internet-shop.tmweb.ru/basket/remove/2" method="POST">
+                                <form action="{{route('basket-remove', [$product])}}" method="POST">
+                                    @csrf
                                     <button type="submit" class="btn btn-danger" href="">
                                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                     </button>
                                 </form>
 
                                 <form action="{{route('basket-add', [$product])}}" method="POST">
+                                    @csrf
                                     <button type="submit" class="btn btn-success">
                                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                     </button>
-                                    @csrf
                                 </form>
                             </div>
                         </td>
