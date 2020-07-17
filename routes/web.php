@@ -24,7 +24,7 @@ Route::namespace('Basket')->group(function () {
     Route::get('/basket', 'BasketController@basket')
         ->name('basket');
 
-    /* Basket */
+    /* Basket place*/
     Route::get('/basket/place', 'BasketController@basketPlace')
         ->name('basket-place');
 
