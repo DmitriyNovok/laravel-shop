@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts/master')
 
 @section('title', 'Оформить заказ')
 
@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <p>Общая стоимость: <b>{{$order->totalOrderAmount()}} ₽.</b></p>
-                <form action="http://internet-shop.tmweb.ru/basket/place" method="POST">
+                <form action="{{route('basket-confirmation')}}" method="POST">
                     <div>
                         <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
 
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <br>
-                        <input type="hidden" name="_token" value="sWETE6pbAmHmPHWyko7Gl3l8AN0prbmBs3alOjNa">
+                        @csrf
                         <input type="submit" class="btn btn-success" value="Подтвердите заказ">
                     </div>
                 </form>

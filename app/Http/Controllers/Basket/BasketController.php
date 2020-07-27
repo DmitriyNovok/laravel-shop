@@ -73,4 +73,9 @@ class BasketController
             'order' => $order
         ]);
     }
+
+    public function confirmation()
+    {
+
+    }
 }

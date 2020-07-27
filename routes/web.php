@@ -35,6 +35,10 @@ Route::namespace('Basket')->group(function () {
     /* Remove in basket */
     Route::post('/basket/remove/{id}', 'BasketController@remove')
         ->name('basket-remove');
+
+    /* Confirmation */
+    Route::post('/basket/confirmation', 'BasketController@confirmation')
+        ->name('basket-confirmation');
 });
 
 Route::namespace('Products')->group(function () {
