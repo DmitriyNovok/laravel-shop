@@ -63,6 +63,14 @@ class BasketController
 
     public function basketPlace()
     {
-        return view('order');
+        $order_id = session('order_id');
+        if (is_null($order_id)) {
+            redirect()->route('index');
+        }
+        $order = Order::find($order_id);
+
+        return view('order', [
+            'order' => $order
+        ]);
     }
 }
