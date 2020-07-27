@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Basket;
 
 use App\Models\Order;
+use Illuminate\Http\Request;
 
 class BasketController
 {
@@ -74,8 +75,15 @@ class BasketController
         ]);
     }
 
-    public function confirmation()
+    public function confirmation(Request $request)
     {
+        $order_id = session('order_id');
+        if (is_null($order_id)) {
+            redirect()->route('index');
+        }
+        $order = Order::find($order_id);
+        $result = $order->saveOrder($request->name, $request->phone);
 
+        return redirect()->route('index');
     }
 }

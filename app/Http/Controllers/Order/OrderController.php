@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Order;
 
-class OrderController
+use App\Models\Order;
+
+class OrderController extends Order
 {
     public function order()
     {
