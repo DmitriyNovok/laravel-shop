@@ -11,6 +11,23 @@
 |
 */
 
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false
+]);
+
+Route::namespace('Auth')->group(function () {
+
+    /* Home admin panel */
+    Route::get('/home', 'AdminPanelController@index')
+        ->name('admin-panel');
+
+    /* Logout */
+    Route::get('/logout', 'LoginController@logout')
+        ->name('logout');
+});
+
 Route::namespace('Web')->group(function () {
 
     /* Home page */

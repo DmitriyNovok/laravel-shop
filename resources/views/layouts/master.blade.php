@@ -41,9 +41,20 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                @guest
                 <li>
-                    <a href="/login">Login</a>
+                    <a href="{{route('login')}}">Панель администратора</a>
                 </li>
+                @endguest
+
+                @auth
+                <li>
+                    <a href="{{route('admin-panel')}}">Панель администратора</a>
+                </li>
+                <li>
+                    <a href="{{route('logout')}}">Выйти</a>
+                </li>
+                @endauth
             </ul>
         </div>
     </div>
