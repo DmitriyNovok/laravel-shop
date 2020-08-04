@@ -49,7 +49,7 @@
 
                 @auth
                 <li>
-                    <a href="{{route('admin-panel')}}">Панель администратора</a>
+                    <a href="{{route('orders')}}">Панель администратора</a>
                 </li>
                 <li>
                     <a href="{{route('logout')}}">Выйти</a>

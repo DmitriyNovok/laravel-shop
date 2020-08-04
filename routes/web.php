@@ -18,14 +18,19 @@ Auth::routes([
 ]);
 
 Route::namespace('Auth')->group(function () {
-
-    /* Home admin panel */
-    Route::get('/home', 'AdminPanelController@index')
-        ->name('admin-panel');
-
     /* Logout */
     Route::get('/logout', 'LoginController@logout')
         ->name('logout');
+});
+
+Route::group([
+    'middleware' => 'auth',
+    'namespace' => 'Admin'
+], function () {
+
+    /*  Dashboard */
+    Route::get('/orders', 'OrderController@index')
+        ->name('orders');
 });
 
 Route::namespace('Web')->group(function () {
