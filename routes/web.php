@@ -44,25 +44,31 @@ Route::namespace('Web')->group(function () {
 
 Route::namespace('Basket')->group(function () {
 
-    /* Basket */
-    Route::get('/basket', 'BasketController@basket')
-        ->name('basket');
-
-    /* Basket place*/
-    Route::get('/basket/place', 'BasketController@basketPlace')
-        ->name('basket-place');
-
     /* Add item in basket */
     Route::post('/basket/add/{id}', 'BasketController@add')
         ->name('basket-add');
 
-    /* Remove in basket */
-    Route::post('/basket/remove/{id}', 'BasketController@remove')
-        ->name('basket-remove');
+    Route::group([
+        'middleware' => 'basket_is_not_empty',
+        'prefix' => 'basket'
+    ], function () {
 
-    /* Confirmation */
-    Route::post('/basket/confirmation', 'BasketController@confirmation')
-        ->name('basket-confirmation');
+        /* Basket */
+        Route::get('/', 'BasketController@basket')
+            ->name('basket');
+
+        /* Basket place*/
+        Route::get('/place', 'BasketController@basketPlace')
+            ->name('basket-place');
+
+        /* Remove in basket */
+        Route::post('/remove/{id}', 'BasketController@remove')
+            ->name('basket-remove');
+
+        /* Confirmation */
+        Route::post('/confirmation', 'BasketController@confirmation')
+            ->name('basket-confirmation');
+    });
 });
 
 Route::namespace('Products')->group(function () {
