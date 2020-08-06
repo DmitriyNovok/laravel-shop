@@ -35,7 +35,7 @@ class BasketController
         }
 
         $product = Product::find($product_id);
-        session()->flash('success', 'Добавлен товар ' . $product->name);
+        session()->flash('success', 'Addition product ' . $product->name);
 
         return redirect()->route('basket');
     }
@@ -59,7 +59,7 @@ class BasketController
         }
 
         $product = Product::find($product_id);
-        session()->flash('warning', 'Удален из корзины товар ' . $product->name);
+        session()->flash('warning', 'Remove from basket product ' . $product->name);
 
         return redirect()->route('basket');
     }
@@ -98,9 +98,9 @@ class BasketController
         $success = $order->saveOrder($request->name, $request->phone);
 
         if ($success) {
-            session()->flash('success', 'Ваш заказ принят в обработку!');
+            session()->flash('success', 'Your order has been accepted for processing!');
         } else {
-            session()->flash('warning', 'Ошибка!');
+            session()->flash('warning', 'Error!');
         }
 
         return redirect()->route('home');
