@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Basket;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController
 {
@@ -26,6 +27,11 @@ class BasketController
             $pivotRow->update();
         } else {
             $order->products()->attach($product_id);
+        }
+
+        if (Auth::check()) {
+            $order->user_id = Auth::id();
+            $order->save();
         }
 
         $product = Product::find($product_id);
