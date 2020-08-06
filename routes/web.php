@@ -28,9 +28,11 @@ Route::group([
     'namespace' => 'Admin'
 ], function () {
 
-    /*  Dashboard */
-    Route::get('/orders', 'OrderController@index')
-        ->name('orders');
+    Route::group(['middleware' => 'is_admin'], function () {
+        /*  Dashboard */
+        Route::get('/orders', 'OrderController@index')
+            ->name('orders');
+    });
 });
 
 Route::namespace('Web')->group(function () {
