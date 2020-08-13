@@ -25,7 +25,8 @@ Route::namespace('Auth')->group(function () {
 
 Route::group([
     'middleware' => 'auth',
-    'namespace' => 'Admin'
+    'namespace' => 'Admin',
+    'prefix' => 'admin'
 ], function () {
 
     Route::group(['middleware' => 'is_admin'], function () {
@@ -33,6 +34,8 @@ Route::group([
         Route::get('/orders', 'OrderController@index')
             ->name('orders');
     });
+
+    Route::resource('categories', 'CategoryController');
 });
 
 Route::namespace('Web')->group(function () {
