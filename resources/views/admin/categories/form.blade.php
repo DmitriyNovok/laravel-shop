@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('admin.layouts.master')
 
 @isset($category)
     @section('title', 'Редактировать категорию ' . $category->name)
@@ -19,8 +19,7 @@
               action="{{ route('categories.update', $category) }}"
               @else
               action="{{ route('categories.store') }}"
-                @endisset
-        >
+                @endisset>
             <div>
                 @isset($category)
                     @method('PUT')

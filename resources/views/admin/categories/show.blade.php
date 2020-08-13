@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('admin.layouts.master')
 
 @section('title', 'Категория ' . $category->name)
 
@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>Кол-во товаров</td>
-                <td>{{ $category->products->count() }}</td>
+                <td>{{ $category->getProducts->count() }}</td>
             </tr>
             </tbody>
         </table>

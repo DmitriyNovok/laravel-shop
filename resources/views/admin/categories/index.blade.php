@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('admin.layouts.master')
 
 @section('title', 'Категории')
 
@@ -40,8 +40,6 @@
             @endforeach
             </tbody>
         </table>
-        {{ $categories->links() }}
-        <a class="btn btn-success" type="button"
-           href="{{ route('categories.create') }}">Добавить категорию</a>
+        <a class="btn btn-success" type="button" href="{{ route('categories.create') }}">Добавить категорию</a>
     </div>
 @endsection
