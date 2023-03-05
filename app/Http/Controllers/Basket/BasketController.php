@@ -12,6 +12,7 @@ class BasketController
     public function add($product_id)
     {
         $order_id = session('order_id');
+
         if (is_null($order_id)) {
             $order = Order::create()->id;
             session([
@@ -34,8 +35,7 @@ class BasketController
             $order->save();
         }
 
-        $product = Product::find($product_id);
-        session()->flash('success', 'Addition product ' . $product->name);
+        session()->flash('success', 'Addition product ' . Product::find($product_id)->name);
 
         return redirect()->route('basket');
     }
@@ -43,9 +43,11 @@ class BasketController
     public function remove($product_id)
     {
         $order_id = session('order_id');
+
         if (is_null($order_id)) {
             return redirect()->route('basket');
         }
+
         $order = Order::find($order_id);
 
         if ($order->products->contains($product_id)) {
@@ -58,8 +60,7 @@ class BasketController
             }
         }
 
-        $product = Product::find($product_id);
-        session()->flash('warning', 'Remove from basket product ' . $product->name);
+        session()->flash('warning', 'Remove from basket product ' . Product::find($product_id)->name);
 
         return redirect()->route('basket');
     }
@@ -67,9 +68,11 @@ class BasketController
     public function basket()
     {
         $order_id = session('order_id');
-        if (! is_null($order_id)) {
+
+        if (!is_null($order_id)) {
             $order = Order::findOrFail($order_id);
         }
+
         return view('basket', [
             'order' => $order
         ]);
@@ -91,9 +94,11 @@ class BasketController
     public function confirmation(Request $request)
     {
         $order_id = session('order_id');
+
         if (is_null($order_id)) {
             redirect()->route('home');
         }
+
         $order = Order::find($order_id);
         $success = $order->saveOrder($request->name, $request->phone);
 

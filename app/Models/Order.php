@@ -16,9 +16,11 @@ class Order extends Model
     public function totalOrderAmount()
     {
         $sum = 0;
+
         foreach ($this->products as $product) {
             $sum += $product->getPriceForCount();
         }
+
         return $sum;
     }
 
